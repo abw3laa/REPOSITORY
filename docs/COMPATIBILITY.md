@@ -48,3 +48,10 @@ The final service design must be validated against the exact Android API level a
 ## Release rule
 
 No marketing or UI label may claim "works on all Android phones". Support must be reported per device/OS/capture engine after self-test.
+
+
+## Current implementation status
+
+The codebase contains only a fail-closed `AdbTransport` boundary at this stage. The default implementation is `UnsupportedAdbTransport`; it cannot execute shell commands and cannot start a recorder.
+
+This is deliberate. We will integrate a reviewed embedded-ADB transport only after validating its protocol implementation, licensing, Android-version coverage, and security properties. Until then, the application must report the recorder capability as unavailable rather than pretending that ADB is connected.
