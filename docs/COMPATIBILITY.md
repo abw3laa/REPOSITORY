@@ -28,7 +28,7 @@ A device is not considered "supported" merely because permissions are granted.
 
 ## Wireless debugging / privileged path
 
-A future no-root privileged recorder path may use user-enabled Wireless debugging / ADB capabilities on compatible Android versions. Android's documented wireless-debugging flow requires the user to enable Wireless debugging and pair the device with a workstation or approved pairing flow; this is not equivalent to a normal application permission. cite-placeholder
+A future no-root privileged recorder path may use user-enabled Wireless debugging / ADB capabilities on compatible Android versions. Android's documented wireless-debugging flow requires the user to enable Wireless debugging and pair the device with a workstation; this is not equivalent to a normal application permission.
 
 The recorder implementation must therefore:
 
