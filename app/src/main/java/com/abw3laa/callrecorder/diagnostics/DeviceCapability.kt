@@ -5,7 +5,7 @@ data class DeviceCapability(
     val manufacturer: String,
     val model: String,
     val phoneStatePermission: Boolean,
-    val callLogPermission: Boolean,
+    val recordAudioPermission: Boolean,
     val notificationsPermission: Boolean,
     val recordingEngineReady: Boolean = false,
     val twoWayAudioVerified: Boolean = false
