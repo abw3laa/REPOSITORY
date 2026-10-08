@@ -1,5 +1,7 @@
 package com.abw3laa.callrecorder.recording
 
+import com.abw3laa.callrecorder.call.CallDirection
+
 interface RecordingEngine {
     val id: String
     suspend fun start(session: RecordingSession): Result<Unit>
@@ -12,8 +14,6 @@ data class RecordingSession(
     val direction: CallDirection,
     val number: String?
 )
-
-enum class CallDirection { INCOMING, OUTGOING, UNKNOWN }
 
 data class RecordingCapability(
     val supported: Boolean,
