@@ -33,3 +33,16 @@ The app must never:
 - execute arbitrary commands supplied by the user, network, or external content;
 - claim two-way call recording support before a real-device capability test verifies it.
 
+
+
+## IPC authentication
+
+The privileged recorder boundary now has an explicit narrow command protocol:
+
+- `Start(sessionId, outputPath)`
+- `Stop`
+- `SelfTest`
+
+The application creates a fresh 256-bit random session secret for the recorder process. Commands are authenticated with HMAC-SHA-256 over a monotonically increasing sequence number, the canonical command payload, and a fresh nonce. The secret is memory-only and is never written to disk.
+
+This protocol does not grant shell access to the application. The future ADB/bootstrap layer is responsible for launching the exact recorder component and transferring the one-time bootstrap secret through a protected local channel.
